@@ -11,6 +11,7 @@ admin.get('/', function(req, res) {
 var secret = express();
 secret.get('/', function(req, res) {
   console.log('secret.mountpath:', secret.mountpath); // /secr*t
+  res.send('Secret Page'); // 必须调用res.send()方法，页面才不会一直加载
 });
 
 admin.use('/secr*t', secret);
