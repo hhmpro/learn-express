@@ -4,11 +4,18 @@ var app = express(); // the main app
 var admin = express(); // the sub app
 
 admin.get('/', function(req, res) {
-  console.log('admin.mountpath:', admin.mountpath); //admin
+  console.log('admin.mountpath:', admin.mountpath); // ['/adm*n','/manager']
   res.send('Admin Homepage');
 });
 
-app.use('/admin', admin); // mount the sub app
+var secret = express();
+secret.get('/', function(req, res) {
+  console.log('secret.mountpath:', secret.mountpath); // /secr*t
+});
+
+admin.use('/secr*t', secret);
+
+app.use(['/adm*n', '/manager'], admin); // mount the sub app
 
 var port = 3000;
 app.listen(port, function() {
