@@ -14,6 +14,14 @@ secret.get('/', function(req, res) {
   res.send('Secret Page'); // 必须调用res.send()方法，页面才不会一直加载
 });
 
+var salary = express();
+salary.get('/', function(req, res) {
+  console.log('salary.mountpath:', salary.mountpath);
+  res.send('Salary Page');
+});
+
+secret.use(['/salary', '/money'], salary);
+
 admin.use('/secr*t', secret);
 
 app.use(['/adm*n', '/manager'], admin); // mount the sub app
