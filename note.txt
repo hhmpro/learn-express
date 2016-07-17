@@ -1,0 +1,17 @@
+// app.locals的初始值
+app.locals = {
+  settings: {
+    'x-powered-by': true,
+    etag: 'weak',
+    'etag fn': [Function: wetag],
+    env: 'development',
+    'query parser': 'extended',
+    'query parser fn': [Function: parseExtendedQueryString],
+    'subdomain offset': 2,
+    'trust proxy': false,
+    'trust proxy fn': [Function: trustNone],
+    view: [Function: View],
+    views: '/Users/shatter/MyProjects/learn-express/views',
+    'jsonp callback name': 'callback'
+  }
+}
